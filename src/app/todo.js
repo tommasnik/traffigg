@@ -1,16 +1,20 @@
-var FPS = 55;
+var FPS = 40;
 
 var SAFE_GAP = 20;
+var ids = 0;
 
 angular.module('todoApp', []).controller('TodoController', function($scope, $interval) {
     $scope.cars = [
-        new Car(1, 100, 100),
-        new Car(2, 400, 80),
-        new Car(3, 600, 50),
-        new Car(4, 700, 57),
-        new Car(5, 200, 80),
-        new Car(6, 300, 90),
-        new Car(7, 770, 30)
+        new Car(100, 100),
+        new Car(400, 80),
+        new Car(600, 50),
+        new Car(700, 57),
+        new Car(200, 80),
+        new Car(300, 90),
+        new Car(350, 90),
+        new Car(390, 90),
+        new Car(450, 90),
+        new Car(770, 50)
     ];
 
     $scope.safeGap = SAFE_GAP;
@@ -30,7 +34,7 @@ angular.module('todoApp', []).controller('TodoController', function($scope, $int
     }, 1000 / FPS);
 });
 
-var Car = function(id, x, maxSpeed) {
+var Car = function(x, maxSpeed) {
     this.maxSpeed = maxSpeed;
     this.width = 20;
     this.height = 12;
@@ -38,7 +42,7 @@ var Car = function(id, x, maxSpeed) {
     this.maxDecceleration = 5;
     this.debug = {};
 
-    this.id = id;
+    this.id = ++ids;
     this.speed = Math.random() * this.maxSpeed;
     this.position = {
         x: x,
