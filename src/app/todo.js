@@ -32,6 +32,14 @@ angular.module('todoApp', []).controller('TodoController', function($scope, $int
             car.updatePosition($scope.cars);
         });
     }, 1000 / FPS);
+
+    $interval(function() {
+        $scope.cars.push(new Car(100, 90));
+    }, 3300);
+
+    $scope.calculateY = function(car) {
+        return car.position.y + Math.floor(car.position.x/1000) * 50;
+    }
 });
 
 var Car = function(x, maxSpeed) {

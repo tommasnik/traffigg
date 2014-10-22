@@ -13,7 +13,7 @@
     <svg width="1000" height="700" xmlns="http://www.w3.org/2000/svg">
         <g ng-repeat="car in cars"
            ng-click="selectCar(car)"
-           ng-attr-transform="translate({{car.position.x % 1000}}, {{car.position.y}})">
+           ng-attr-transform="translate({{car.position.x % 1000}}, {{calculateY(car)}})">
             <!--<rect ng-attr-width="{{car.width + safeGap}}" ng-attr-height="{{car.height}}" stroke="blue" fill="none" stroke-width="1px"></rect>-->
             <rect ng-attr-width="{{car.width}}" ng-attr-height="{{car.height}}" ng-attr-stroke="{{car.selected ? 'pink' : 'black'}}" stroke-width="3px"></rect>
             <text x="0" y="10" fill="red">{{car.id}}</text>
